@@ -6,6 +6,8 @@
 #define ACERTOS "./arquivosEntradas/acertos.txt"
 #define CURSOSPESOS "./arquivosEntradas/cursos_e_pesos.txt"
 #define DADOS "./arquivosEntradas/dados.txt"
+#define CURSOSVAGAS "./arquivosEntradas/cursos_e_vagas.txt"
+
 
 
 struct data{
@@ -29,7 +31,12 @@ struct curso{
 	char nome[100];
 	int cod;
 	int pesos[5];
-	vest* concorrentes;
+	int ac;
+	int l1;
+	int l3;
+	int l4;
+
+	
 	//o ultimo peso é da redação
 };
 
