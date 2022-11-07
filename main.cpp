@@ -115,12 +115,11 @@ int main(){
  
  	vestibulando = (vest*)calloc(nInscDados, sizeof(vest));
  
- 	int qntdvezes = 0;//variavel de teste
+ 	
 
  	int aux = 0;
  	while (!feof(dados)){
  		fscanf(dados, "%d %d", &nC, &nV);
- 		//printf("%d\n", nV);
  		for (int j = 0; j < nV; j++){
  			vestibulando[aux].curso = nC;
  			fscanf(dados, "%d", &vestibulando[aux].matricula);
@@ -136,9 +135,7 @@ int main(){
  					vestibulando[aux].notas[2] = acertos[k][2];
  					vestibulando[aux].notas[3] = acertos[k][3];
  					vestibulando[aux].notas[4] = acertos[k][4];
- 					//dimVet(insc, k, nInsc);
-
- 					//printf("ok nas notas\n");
+ 					dimVet(insc, k, nInsc);
  					for (int l = 0; l < nCurs; l++){
  						if (vestibulando[aux].curso == vetorCursos[l].cod){
  							vestibulando[aux].notaFinal = ((vestibulando[aux].notas[0] * vetorCursos[l].pesos[2]) + 
@@ -150,7 +147,6 @@ int main(){
  							break;
  						}
  					}
- 					//qntdvezes = qntdvezes+1;
  					break;
  				}
  				qntdvezes = qntdvezes+1;
@@ -159,17 +155,17 @@ int main(){
  		}
  	}
 
-
 ///////////////testeNotas//////////////////
- 	for (int i = 0; i < nInscDados; i++){
- 		fprintf(testeNotas, "%d - %s\nData de nasc - %d/%d/%d", vestibulando[i].matricula, vestibulando[i].nome, vestibulando[i].nasc.dia, vestibulando[i].nasc.mes, vestibulando[i].nasc.ano);
- 		if (vestibulando[i].notaFinal != 0){
- 			fprintf(testeNotas, "\n nota final ==> %.4f\n\n\n\n", vestibulando[i].notaFinal);
- 		}
- 	}
- 	fprintf(testeNotas, "\n\n\n\n========== qntdvezes - %d ============\n\n\n\n", qntdvezes);
- 	fprintf(testeNotas, "\n\n\n\n========== qntdpessoas - %d ============\n\n\n\n", aux);
-	
-	
+// 	for (int i = 0; i < nInscDados; i++){
+// 		fprintf(testeNotas, "%d - %s\nData de nasc - %d/%d/%d", vestibulando[i].matricula, vestibulando[i].nome, vestibulando[i].nasc.dia, vestibulando[i].nasc.mes, vestibulando[i].nasc.ano);
+// 		if (vestibulando[i].notaFinal != 0){
+// 			fprintf(testeNotas, "\n nota final ==> %.4f\n\n\n\n", vestibulando[i].notaFinal);
+// 		}
+// 	}
+// 	fprintf(testeNotas, "\n\n\n\n========== qntdvezes - %d ============\n\n\n\n", qntdvezes);
+// 	fprintf(testeNotas, "\n\n\n\n========== qntdpessoas - %d ============\n\n\n\n", aux);
+//	
+//////////////testeNotas//////////////////	
+
 	return 0;
 }
