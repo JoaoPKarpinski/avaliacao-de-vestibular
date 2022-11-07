@@ -8,14 +8,14 @@ void dimVet(int *&vetor, int k, int &tam){
 	tam = tam-1;
 }
 
-void bubbleSortCurs(cursos *&vetCurs, int n){
-	cursos aux;
+void bubbleSortCurs(curso *&vetCurs, int n){
+	curso aux;
 	for (int i = 0; i < n; i++){
 		for (int j = 0; j < n-i-1; j++){
 			if (vetCurs[j].cod < vetCurs[j+1].cod){
 				aux = vetCurs[j+1];
 				vetCurs[j+1] = vetCurs[j];
-				vetcurs[j] = aux;
+				vetCurs[j] = aux;
 			}
 		}
 	}
@@ -114,7 +114,7 @@ int main(){
 		for (int j = 0; j < 5; j++){
 		fscanf(cursos, "%d", &vetorCursos[i].pesos[j]);
 		}
-		for (int )
+		//for (int )
 	}
  
 
@@ -192,9 +192,9 @@ int main(){
 
 
 /////////teste
-//	for (int i = 0; i < nCurs; i++){
-//		printf("%d\n\n", vetorCursos[i].cod);
-//	}
-//
-//	return 0;
+	for (int i = 0; i < nCurs; i++){
+		printf("%d\n\n", vetorCursos[i].cod);
+	}
+
+	return 0;
 }
