@@ -8,6 +8,32 @@ void dimVet(int *&vetor, int k, int &tam){
 	tam = tam-1;
 }
 
+void bubbleSortCurs(cursos *&vetCurs, int n){
+	cursos aux;
+	for (int i = 0; i < n; i++){
+		for (int j = 0; j < n-i-1; j++){
+			if (vetCurs[j].cod < vetCurs[j+1].cod){
+				aux = vetCurs[j+1];
+				vetCurs[j+1] = vetCurs[j];
+				vetcurs[j] = aux;
+			}
+		}
+	}
+}
+
+void bubbleSort(int *&vetor, int n){
+	int aux;
+	for (int i = 0; i < n; i++){
+		for (int j = 0; j < n-i-1; j++){
+			if (vetor[j] < vetor[j+1]){
+				aux = vetor[j+1];
+				vetor[j+1] = vetor[j];
+				vetor[j] = aux;
+			}
+		}
+	}
+}
+
 
 /*******************************
      TROCAR AS CONSTANTES DE ARQUIVOS
@@ -20,7 +46,7 @@ int main(){
 	FILE *dados = fopen(DADOS, "r");
 	FILE *cursos = fopen(CURSOSPESOS, "r");
 	FILE *testeNotas = fopen("testeNotas.txt", "a");
-
+	FILE *cursosVagas = fopen(CURSOSVAGAS, "r");
 	
 	int nInsc, *insc;
 
@@ -40,7 +66,6 @@ int main(){
 
 	desv  = (float*)malloc(5 * sizeof(float));
 	media = (float*)malloc(5 * sizeof(float));
-//	notaF = (float*)malloc(nInsc * sizeof(float));
 
 	fscanf(cursos, "%d", &nCurs);
 	vetorCursos = (curso*)malloc(nCurs * sizeof(curso));
@@ -89,6 +114,7 @@ int main(){
 		for (int j = 0; j < 5; j++){
 		fscanf(cursos, "%d", &vetorCursos[i].pesos[j]);
 		}
+		for (int )
 	}
  
 
@@ -164,5 +190,11 @@ int main(){
 //	
 //////////////testeNotas//////////////////	
 
-	return 0;
+
+/////////teste
+//	for (int i = 0; i < nCurs; i++){
+//		printf("%d\n\n", vetorCursos[i].cod);
+//	}
+//
+//	return 0;
 }
