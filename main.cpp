@@ -114,8 +114,6 @@ int main(){
  	nInscDados = nInscDados - nCurs;
  
  	vestibulando = (vest*)calloc(nInscDados, sizeof(vest));
- 
- 	
 
  	int aux = 0;
  	while (!feof(dados)){
@@ -149,7 +147,6 @@ int main(){
  					}
  					break;
  				}
- 				qntdvezes = qntdvezes+1;
  			}
  			aux = aux + 1;
  		}
