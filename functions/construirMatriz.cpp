@@ -9,3 +9,15 @@ void construirMatrizFloat(float **&matriz, int qntVet, int qntItens){
 	}
 	
 }
+
+
+
+void construirMatrizInt(int **&matriz, int qntVet, int qntItens){
+	
+	matriz = (int **) malloc(qntVet * sizeof(int *));
+
+	for (int i = 0; i < qntVet; i++){
+		matriz[i] = (int *)malloc(qntItens * sizeof(int));
+	}
+	
+}
