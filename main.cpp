@@ -12,7 +12,7 @@ void bubbleSortCurs(curso *&vetCurs, int n){
 	curso aux;
 	for (int i = 0; i < n; i++){
 		for (int j = 0; j < n-i-1; j++){
-			if (vetCurs[j].cod < vetCurs[j+1].cod){
+			if (vetCurs[j].cod > vetCurs[j+1].cod){
 				aux = vetCurs[j+1];
 				vetCurs[j+1] = vetCurs[j];
 				vetCurs[j] = aux;
@@ -25,7 +25,7 @@ void bubbleSort(int *&vetor, int n){
 	int aux;
 	for (int i = 0; i < n; i++){
 		for (int j = 0; j < n-i-1; j++){
-			if (vetor[j] < vetor[j+1]){
+			if (vetor[j] > vetor[j+1]){
 				aux = vetor[j+1];
 				vetor[j+1] = vetor[j];
 				vetor[j] = aux;
@@ -51,6 +51,7 @@ int main(){
 	int nInsc, *insc;
 
 	int nCurs;
+	int **vagasCurs;
 	curso *vetorCursos;
 
 //     nV --> para a leitura de DADOS (numero de insc naquele curso)
@@ -114,7 +115,15 @@ int main(){
 		for (int j = 0; j < 5; j++){
 		fscanf(cursos, "%d", &vetorCursos[i].pesos[j]);
 		}
-		//for (int )
+	}
+
+
+	fscanf(cursosVagas, "%d", nCurs);
+
+	for (int i = 0; i < nCurs; i++){
+		for (int j = 0; j < 12; j++){
+			fscanf(cursosVagas, "%d", &vagasCurs[i][j]);
+		}
 	}
  
 
@@ -192,8 +201,9 @@ int main(){
 
 
 /////////teste
+ 	bubbleSortCurs(vetorCursos, nCurs);
 	for (int i = 0; i < nCurs; i++){
-		printf("%d\n\n", vetorCursos[i].cod);
+		printf("%d %s\n\n", vetorCursos[i].cod, vetorCursos[i].nome);
 	}
 
 	return 0;
