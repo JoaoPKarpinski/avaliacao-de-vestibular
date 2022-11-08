@@ -94,8 +94,9 @@ int main(){
 	construirMatrizInt(vagasCurs, nCurs, 12);
 	fscanf(cursosVagas, "%d", &nCurs);
 
-	for (int i = 0; i < nCurs; i++){
-		for (int j = 0; j < 12; j++){
+
+	for (int i = 0; i < nCurs; i++){                      // criando vetor que armazena, alem do cod do curso,
+		for (int j = 0; j < 12; j++){			               // as vagas referentes a cada "cota"
 			fscanf(cursosVagas, "%d", &vagasCurs[i][j]);
 		}
 	}
