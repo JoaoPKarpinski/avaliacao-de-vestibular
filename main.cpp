@@ -8,32 +8,6 @@ void dimVet(int *&vetor, int k, int &tam){
 	tam = tam-1;
 }
 
-void bubbleSortCurs(curso *&vetCurs, int n){
-	curso aux;
-	for (int i = 0; i < n; i++){
-		for (int j = 0; j < n-i-1; j++){
-			if (vetCurs[j].cod > vetCurs[j+1].cod){
-				aux = vetCurs[j+1];
-				vetCurs[j+1] = vetCurs[j];
-				vetCurs[j] = aux;
-			}
-		}
-	}
-}
-
-void bubbleSort(int *&vetor, int n){
-	int aux;
-	for (int i = 0; i < n; i++){
-		for (int j = 0; j < n-i-1; j++){
-			if (vetor[j] > vetor[j+1]){
-				aux = vetor[j+1];
-				vetor[j+1] = vetor[j];
-				vetor[j] = aux;
-			}
-		}
-	}
-}
-
 
 /*******************************
      TROCAR AS CONSTANTES DE ARQUIVOS
@@ -117,8 +91,8 @@ int main(){
 		}
 	}
 
-
-	fscanf(cursosVagas, "%d", nCurs);
+	construirMatrizInt(vagasCurs, nCurs, 12);
+	fscanf(cursosVagas, "%d", &nCurs);
 
 	for (int i = 0; i < nCurs; i++){
 		for (int j = 0; j < 12; j++){
@@ -198,13 +172,6 @@ int main(){
 // 	fprintf(testeNotas, "\n\n\n\n========== qntdpessoas - %d ============\n\n\n\n", aux);
 //	
 //////////////testeNotas//////////////////	
-
-
-/////////teste
- 	bubbleSortCurs(vetorCursos, nCurs);
-	for (int i = 0; i < nCurs; i++){
-		printf("%d %s\n\n", vetorCursos[i].cod, vetorCursos[i].nome);
-	}
 
 	return 0;
 }
