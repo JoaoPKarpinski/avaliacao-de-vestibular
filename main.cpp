@@ -1,5 +1,5 @@
-#include "./functions/functionsVest.h"
-
+//#include "./functions/funcoes-e-estruturas.h"
+#include "./functions/sort.cpp"
 
 //#define PESSOA 571567
 
@@ -9,10 +9,10 @@ void dimVet(int *&vetor, int k, int &tam){
 }
 
 
-/*******************************
+/**************************************
      TROCAR AS CONSTANTES DE ARQUIVOS
      POR PARAMETRO DE FUNÇÃO
-********************************/
+***************************************/
 
 
 int main(){
@@ -25,7 +25,7 @@ int main(){
 	int nInsc, *insc;
 
 	int nCurs;
-	int **vagasCurs;
+	vagasCurso *vagasCurs;
 	curso *vetorCursos;
 
 //     nV --> para a leitura de DADOS (numero de insc naquele curso)
@@ -83,7 +83,7 @@ int main(){
 	CONSTRUINDO O VETOR QUE ARMAZENA AS 
  	ESTRUTURAS DOS CURSOS
 */ 
-	for (int i = 0; i < nCurs; i++){
+	for (int i = 0; i < nCurs-1; i++){
 	fscanf(cursos, "%d", &vetorCursos[i].cod);
 	fscanf(cursos, " %[^1234567890]", vetorCursos[i].nome);
 		for (int j = 0; j < 5; j++){
@@ -91,15 +91,19 @@ int main(){
 		}
 	}
 
-	construirMatrizInt(vagasCurs, nCurs, 12);
 	fscanf(cursosVagas, "%d", &nCurs);
 
+	vagasCurs = (vagasCurso*)malloc(nCurs * sizeof(vagasCurso));    // criando vetor que armazena, alem do cod do curso,
 
-	for (int i = 0; i < nCurs; i++){                      // criando vetor que armazena, alem do cod do curso,
-		for (int j = 0; j < 12; j++){			               // as vagas referentes a cada "cota"
-			fscanf(cursosVagas, "%d", &vagasCurs[i][j]);
+	for (int i = 0; i < nCurs-1; i++){     
+		fscanf(cursosVagas, "%d", &vagasCurs[i].cod);
+		for (int j = 0; j < 11; j++){
+			fscanf(cursosVagas, "%d", &vagasCurs[i].vagas[j]); // as vagas referentes a cada "cota"
 		}
-	}
+	}	  
+
+	quicksortVagas(0, (nCurs-1), vagasCurs);
+	quicksortCurso(0, (nCurs-1), vetorCursos);
  
 
  /*
@@ -134,8 +138,6 @@ int main(){
  			fscanf(dados, " %[^1234567890]", vestibulando[aux].nome);
  			fscanf(dados, "%d/%d/%d", &vestibulando[aux].nasc.dia, &vestibulando[aux].nasc.mes, &vestibulando[aux].nasc.ano);
  			fscanf(dados, " %[^\n]", vestibulando[aux].cota);
- 			//fprintf(testeNotas, "%d - %s\nData de nasc - %d/%d/%d \n\n", vestibulando[aux].matricula, vestibulando[aux].nome, vestibulando[aux].nasc.dia, vestibulando[aux].nasc.mes, vestibulando[aux].nasc.ano);
-
  			for (int k = 0; k < nInsc; k++){
  				if (vestibulando[aux].matricula == insc[k]){
  					vestibulando[aux].notas[0] = acertos[k][0];
