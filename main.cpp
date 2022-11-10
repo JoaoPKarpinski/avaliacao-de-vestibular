@@ -93,17 +93,24 @@ int main(){
 
 	fscanf(cursosVagas, "%d", &nCurs);
 
+/*
+	CONSTRUINDO O VETOR QUE ARMAZENA AS 
+	ESTRUTURAS DAS VAGAS RESPECTIVAS A CADA CURSO
+*/
+
 	vagasCurs = (vagasCurso*)malloc(nCurs * sizeof(vagasCurso));    // criando vetor que armazena, alem do cod do curso,
 
 	for (int i = 0; i < nCurs-1; i++){     
 		fscanf(cursosVagas, "%d", &vagasCurs[i].cod);
 		for (int j = 0; j < 11; j++){
-			fscanf(cursosVagas, "%d", &vagasCurs[i].vagas[j]); // as vagas referentes a cada "cota"
+			fscanf(cursosVagas, "%d", &vagasCurs[i].vagas[j]);      // as vagas referentes a cada "cota"
 		}
 	}	  
 
 	quicksortVagas(0, (nCurs-1), vagasCurs);
 	quicksortCurso(0, (nCurs-1), vetorCursos);
+
+	printf("%s  -  %d  \n%d %d", vetorCursos[78].nome, vagasCurs[78].vagas[0], vetorCursos[78].cod, vagasCurs[78].cod);
  
 
  /*
