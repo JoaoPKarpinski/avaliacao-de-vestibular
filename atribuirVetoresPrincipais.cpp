@@ -14,8 +14,7 @@ void dimVet(int *&vetor, int k, int &tam){
      POR PARAMETRO DE FUNÇÃO
 ***************************************/
 
-
-int main(){
+ void atribuirVetoresPrincipais(float* &vMedia, float* &vDesvPadrao, curso* &vCursos, vest* &vVestibulandos, vagasCurso* &vVagas, int &numeroVest, int &numeroCursos){
 	FILE *notas = fopen(ACERTOS, "r");
 	FILE *dados = fopen(DADOS, "r");
 	FILE *cursos = fopen(CURSOSPESOS, "r");
@@ -106,13 +105,13 @@ int main(){
 			fscanf(cursosVagas, "%d", &vagasCurs[i].vagas[j]);      // as vagas referentes a cada "cota"
 		}
 	}	  
-
+/*
+	USANDO O ALGORITMO QUICKSORT PARA ALINHAR OS VETORES
+*/ 
 	quicksortVagas(0, (nCurs-1), vagasCurs);
 	quicksortCurso(0, (nCurs-1), vetorCursos);
 
-	printf("%s  -  %d  \n%d %d", vetorCursos[78].nome, vagasCurs[78].vagas[0], vetorCursos[78].cod, vagasCurs[78].cod);
- 
-
+//	printf("%s  -  %d  \n%d %d", vetorCursos[78].nome, vagasCurs[78].vagas[0], vetorCursos[78].cod, vagasCurs[78].cod);
  /*
  	CONSTRUINDO O VETOR QUE ARMAZENA AS 
  	INFORMAÇÕES DOS VESTIBULANDOS
@@ -171,17 +170,13 @@ int main(){
  		}
  	}
 
-///////////////testeNotas//////////////////
-// 	for (int i = 0; i < nInscDados; i++){
-// 		fprintf(testeNotas, "%d - %s\nData de nasc - %d/%d/%d", vestibulando[i].matricula, vestibulando[i].nome, vestibulando[i].nasc.dia, vestibulando[i].nasc.mes, vestibulando[i].nasc.ano);
-// 		if (vestibulando[i].notaFinal != 0){
-// 			fprintf(testeNotas, "\n nota final ==> %.4f\n\n\n\n", vestibulando[i].notaFinal);
-// 		}
-// 	}
-// 	fprintf(testeNotas, "\n\n\n\n========== qntdvezes - %d ============\n\n\n\n", qntdvezes);
-// 	fprintf(testeNotas, "\n\n\n\n========== qntdpessoas - %d ============\n\n\n\n", aux);
-//	
-//////////////testeNotas//////////////////	
 
-	return 0;
+
+ 	vMedia = media;
+ 	vDesvPadrao = desv;
+ 	vCursos = vetorCursos;
+ 	vVestibulandos = vestibulando;
+ 	vVagas = vagasCurs;
+ 	numeroVest = nInscDados;
+ 	numeroCursos = nCurs;
 }

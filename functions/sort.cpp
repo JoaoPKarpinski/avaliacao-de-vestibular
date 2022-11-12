@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "funcoes-e-estruturas.h"
 
+
+
 void troca(curso &a, curso &b){
   curso aux; 
   aux = a; 
@@ -28,8 +30,6 @@ int separa(int p, int r, curso v[]){ // p = inicio r = fim
   }
 }
 
-
-
 void quicksortCurso(int inicio, int fim, curso *&v){
   int q;
   if (inicio < fim) { 
@@ -39,6 +39,8 @@ void quicksortCurso(int inicio, int fim, curso *&v){
   }
 }
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 void trocaVagas(vagasCurso &a, vagasCurso &b){
@@ -67,8 +69,6 @@ int separaVagas(int p, int r, vagasCurso *&v){ // p = inicio r = fim
   }
 }
 
-
-
 void quicksortVagas(int inicio, int fim, vagasCurso *&v){
   int q;
   if (inicio < fim) { 
@@ -76,4 +76,53 @@ void quicksortVagas(int inicio, int fim, vagasCurso *&v){
     quicksortVagas(inicio, q, v);
     quicksortVagas(q+1, fim, v);
   }
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+void trocaNotas(vest &a, vest &b){
+  vest aux; 
+  aux = a; 
+  a = b; 
+  b = aux;
+}
+
+int separaNotas(int p, int r, vest *&v){ // p = inicio r = fim
+  float x;
+  int esq, dir;
+  x = v[p].notaFinal; // = PIVO
+  esq = p - 1;
+  dir = r + 1;
+  while (1) {
+    do {
+      dir--;
+    } while (v[dir].notaFinal > x);
+    do {
+      esq++;
+    } while (v[esq].notaFinal < x);               // [1, 4, 2, 15, 90, 3]     --->      
+    if (esq < dir)
+      trocaNotas(v[esq], v[dir]);
+    else
+      return dir;
+  }
+}
+
+void quicksortNotas(int inicio, int fim, vest *&v){
+  int q;
+  if (inicio < fim) { 
+    q = separaNotas(inicio, fim, v); // = FIM, NA PRIMEIRA INSTANCIA RECURSIVA DA FUNCAO
+    quicksortNotas(inicio, q, v);
+    quicksortNotas(q+1, fim, v);
+  }
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+void quicksortVestCurs(int inicio, int fim, vest *&v){
+  
 }
