@@ -31,6 +31,8 @@ struct curso{
 	char nome[100];
 	int cod;
 	int pesos[5];              //o ultimo peso é da redação
+	vest **ac, **l1, **l3, **l4, **l5, **l7, **l8, **l9, **l11, **l13, **l15;
+	vest **insc;
 };
 
 

@@ -109,20 +109,14 @@ int separaNotas(int p, int r, vest *&v){ // p = inicio r = fim
   }
 }
 
-void quicksortNotas(int inicio, int fim, vest *&v){
+void quicksortVestNotas(int inicio, int fim, vest *&v){
   int q;
   if (inicio < fim) { 
     q = separaNotas(inicio, fim, v); // = FIM, NA PRIMEIRA INSTANCIA RECURSIVA DA FUNCAO
-    quicksortNotas(inicio, q, v);
-    quicksortNotas(q+1, fim, v);
+    quicksortVestNotas(inicio, q, v);
+    quicksortVestNotas(q+1, fim, v);
   }
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-void quicksortVestCurs(int inicio, int fim, vest *&v){
-  
-}

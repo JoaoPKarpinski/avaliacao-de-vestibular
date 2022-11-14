@@ -1,5 +1,6 @@
 //#include "./functions/funcoes-e-estruturas.h"
 #include "./functions/sort.cpp"
+#include <string.h>
 
 //#define PESSOA 571567
 
@@ -111,7 +112,23 @@ void dimVet(int *&vetor, int k, int &tam){
 	quicksortVagas(0, (nCurs-1), vagasCurs);
 	quicksortCurso(0, (nCurs-1), vetorCursos);
 
+
+	for (int i = 0; i < nCurs-1; i++){
+		vetorCursos[i].ac = (vest**)malloc(vagasCurs[i].vagas[0] * sizeof(vest*));
+		vetorCursos[i].l1 = (vest**)malloc(vagasCurs[i].vagas[1] * sizeof(vest*));
+		vetorCursos[i].l3 = (vest**)malloc(vagasCurs[i].vagas[2] * sizeof(vest*));
+		vetorCursos[i].l4 = (vest**)malloc(vagasCurs[i].vagas[3] * sizeof(vest*));
+		vetorCursos[i].l5 = (vest**)malloc(vagasCurs[i].vagas[4] * sizeof(vest*));
+		vetorCursos[i].l7 = (vest**)malloc(vagasCurs[i].vagas[5] * sizeof(vest*));
+		vetorCursos[i].l8 = (vest**)malloc(vagasCurs[i].vagas[6] * sizeof(vest*));
+		vetorCursos[i].l9 = (vest**)malloc(vagasCurs[i].vagas[7] * sizeof(vest*));
+		vetorCursos[i].l11 = (vest**)malloc(vagasCurs[i].vagas[8] * sizeof(vest*));
+		vetorCursos[i].l13 = (vest**)malloc(vagasCurs[i].vagas[9] * sizeof(vest*));
+		vetorCursos[i].l15 = (vest**)malloc(vagasCurs[i].vagas[10] * sizeof(vest*));
+	}
+
 //	printf("%s  -  %d  \n%d %d", vetorCursos[78].nome, vagasCurs[78].vagas[0], vetorCursos[78].cod, vagasCurs[78].cod);
+
  /*
  	CONSTRUINDO O VETOR QUE ARMAZENA AS 
  	INFORMAÇÕES DOS VESTIBULANDOS
@@ -136,8 +153,12 @@ void dimVet(int *&vetor, int k, int &tam){
  	vestibulando = (vest*)calloc(nInscDados, sizeof(vest));
 
  	int aux = 0;
+ 	int cont = 1;
+ 	int cont2 = 0;
+
  	while (!feof(dados)){
  		fscanf(dados, "%d %d", &nC, &nV);
+ 		vetorCursos[cont].insc = (vest**)malloc(nV * sizeof(vest*));
  		for (int j = 0; j < nV; j++){
  			vestibulando[aux].curso = nC;
  			fscanf(dados, "%d", &vestibulando[aux].matricula);
@@ -166,10 +187,37 @@ void dimVet(int *&vetor, int k, int &tam){
  					break;
  				}
  			}
- 			aux = aux + 1;
+ 			vetorCursos[cont].insc[cont2] = &vestibulando[aux];
+ 			aux++;
+ 			cont2++;
  		}
+ 		cont++;
+ 		cont2 = 0;
  	}
 
+ 	fclose(notas);
+ 	fclose(dados);
+ 	fclose(cursos);
+ 	fclose(testeNotas);
+ 	fclose(cursosVagas);                                                                                                   //diferentes  tipos  de  escrita  com  ponteiros  de  registros
+
+ 	//Sprintf("nome - %s, matr - %d\nnome no curs - %s, matr no curs - %d", vestibulando[10].nome, vestibulando[10].matricula, (*vetorCursos[1].insc[10]).nome, (vetorCursos[1].insc[10] -> matricula));
+
+
+
+
+
+
+
+
+
+
+/*
+ 	for (int i = 0; i < nInscDados-15000; i++){
+ 		printf("CURSO - %d === MATRICULA - %d === COTA - %\n", vestibulando[i].curso, vestibulando[i].matricula, vestibulando[i].cota);
+ 		printf("\ncurso 25 - %d\n\n", vetorCursos[25].cod);
+ 	}
+*/
 
 
  	vMedia = media;
