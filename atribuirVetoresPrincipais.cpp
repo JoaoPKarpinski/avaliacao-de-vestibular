@@ -150,7 +150,7 @@ void dimVet(int *&vetor, int k, int &tam){
 
  	nInscDados = nInscDados - nCurs;
  
- 	vestibulando = (vest*)calloc(nInscDados, sizeof(vest));
+ 	vestibulando = (vest*)calloc(nInscDados + 1, sizeof(vest));
 
  	int aux = 0;
  	int cont = 1;
@@ -165,9 +165,9 @@ void dimVet(int *&vetor, int k, int &tam){
  			fscanf(dados, "%d", &vestibulando[aux].matricula);
  			fscanf(dados, " %[^1234567890]", vestibulando[aux].nome);
  			fscanf(dados, "%d/%d/%d", &vestibulando[aux].nasc.dia, &vestibulando[aux].nasc.mes, &vestibulando[aux].nasc.ano);
- 			//printf("teste %d; total - %d; nome - %s\n", aux, nInsc, vestibulando[aux].nome); 			
+ 				
  			fscanf(dados, " %[^\n]", vestibulando[aux].cota);
-  			//vestibulando[aux].diasIdade = (DATACOMP - (vestibulando[aux].nasc.dia + (vestibulando[aux].nasc.mes * 30) + (vestibulando[aux].nasc.ano * 365)));
+  			vestibulando[aux].diasIdade = (DATACOMP - (vestibulando[aux].nasc.dia + (vestibulando[aux].nasc.mes * 30) + (vestibulando[aux].nasc.ano * 365)));
  			for (int k = 0; k < nInsc; k++){
  				if (vestibulando[aux].matricula == insc[k]){
  					vestibulando[aux].notas[0] = acertos[k][0];

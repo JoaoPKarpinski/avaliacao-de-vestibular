@@ -26,7 +26,7 @@ struct vest{
 	float notaFinal;
 	float notas[5];
 	data nasc;
-	//int diasIdade;
+	int diasIdade;
 	char situacao;
 };
 
