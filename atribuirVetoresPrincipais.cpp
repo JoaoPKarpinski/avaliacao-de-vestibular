@@ -114,17 +114,17 @@ void dimVet(int *&vetor, int k, int &tam){
 
 
 	for (int i = 0; i < nCurs; i++){
-		vetorCursos[i].ac = (vest**)malloc(vagasCurs[i].vagas[0] * sizeof(vest*));
-		vetorCursos[i].l1 = (vest**)malloc(vagasCurs[i].vagas[1] * sizeof(vest*));
-		vetorCursos[i].l3 = (vest**)malloc(vagasCurs[i].vagas[2] * sizeof(vest*));
-		vetorCursos[i].l4 = (vest**)malloc(vagasCurs[i].vagas[3] * sizeof(vest*));
-		vetorCursos[i].l5 = (vest**)malloc(vagasCurs[i].vagas[4] * sizeof(vest*));
-		vetorCursos[i].l7 = (vest**)malloc(vagasCurs[i].vagas[5] * sizeof(vest*));
-		vetorCursos[i].l8 = (vest**)malloc(vagasCurs[i].vagas[6] * sizeof(vest*));
-		vetorCursos[i].l9 = (vest**)malloc(vagasCurs[i].vagas[7] * sizeof(vest*));
-		vetorCursos[i].l11 = (vest**)malloc(vagasCurs[i].vagas[8] * sizeof(vest*));
-		vetorCursos[i].l13 = (vest**)malloc(vagasCurs[i].vagas[9] * sizeof(vest*));
-		vetorCursos[i].l15 = (vest**)malloc(vagasCurs[i].vagas[10] * sizeof(vest*));
+		vetorCursos[i].ac = (vest**)calloc(vagasCurs[i].vagas[0], sizeof(vest*));
+		vetorCursos[i].l1 = (vest**)calloc(vagasCurs[i].vagas[1], sizeof(vest*));
+		vetorCursos[i].l3 = (vest**)calloc(vagasCurs[i].vagas[2], sizeof(vest*));
+		vetorCursos[i].l4 = (vest**)calloc(vagasCurs[i].vagas[3], sizeof(vest*));
+		vetorCursos[i].l5 = (vest**)calloc(vagasCurs[i].vagas[4], sizeof(vest*));
+		vetorCursos[i].l7 = (vest**)calloc(vagasCurs[i].vagas[5], sizeof(vest*));
+		vetorCursos[i].l8 = (vest**)calloc(vagasCurs[i].vagas[6], sizeof(vest*));
+		vetorCursos[i].l9 = (vest**)calloc(vagasCurs[i].vagas[7], sizeof(vest*));
+		vetorCursos[i].l11 = (vest**)calloc(vagasCurs[i].vagas[8], sizeof(vest*));
+		vetorCursos[i].l13 = (vest**)calloc(vagasCurs[i].vagas[9], sizeof(vest*));
+		vetorCursos[i].l15 = (vest**)calloc(vagasCurs[i].vagas[10], sizeof(vest*));
 	}
 
 //	printf("%s  -  %d  \n%d %d", vetorCursos[78].nome, vagasCurs[78].vagas[0], vetorCursos[78].cod, vagasCurs[78].cod);
