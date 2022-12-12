@@ -9,8 +9,7 @@ int main(){
 	int nVest;
 	int nCurs;
 	vagasCurso *vVagas;
-	FILE* pAprov = fopen("posicoesDosAprovados.txt", "a");
-
+	
 	atribuirVetoresPrincipais(vMedia, vDesvPadrao, vCursos, vVestibulandos, vVagas, nVest, nCurs);
 
 //	quicksortVestNotas(0, nVest, vVestibulandos);
